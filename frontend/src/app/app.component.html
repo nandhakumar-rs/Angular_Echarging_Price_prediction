@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Echarging Price Prediction</span>
+  </mat-toolbar-row>
+  </mat-toolbar> 
+<div class="center">
+  <form #predictionForm="ngForm" (ngSubmit)="predict(predictionForm)">
+    <mat-form-field class="input">
+      <input matInput placeholder="No Of Sessions" type="number" name="nsession" [ngModel]="nsession" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Accumulated Sessions" type="number" name="asession" [ngModel]="asession" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Unique Drivers" type="number" name="udriver" [ngModel]="udriver" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="No. of Ports" type="number" name="port" [ngModel]="port" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Energy (kWh)" type="number" name="energy" [ngModel]="energy" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Accumulated Energy (MWh)" type="number" name="aenergy" [ngModel]="aenergy" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="GHG savings (kg)" type="number" name="ghg" [ngModel]="ghg" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Accumulated GHG (kg)" type="number" name="aghg" [ngModel]="aghg" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Charge time (minutes)" type="number" name="ct" [ngModel]="ct" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <input matInput placeholder="Gasoline Savings (gallons)" type="number" name="gs" [ngModel]="gs" required>
+    </mat-form-field>
+    <mat-form-field class="input">
+      <mat-select placeholder="Algorithm" name="algo" [ngModel]="algo" required>
+        <mat-option  [value]="'linear'">Linear Regression</mat-option>
+        <mat-option  [value]="'descision'">Decision Tree</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button mat-raised-button color="primary" type="submit" [disabled]="!predictionForm.valid">Predict Price</button>
+  </form>
+</div>
+
+
+<div class="center result" *ngIf="prediction"> 
+<b>Predicted Price : $ {{prediction}}</b>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+form {
+    min-width: 150px;
+  max-width: 700px;
+  width: 100%;
+}
+.input{
+    width: 48.1%;
+    margin-left: 10px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  button{
+    margin-left: 10px;
+    float:right;
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+.result{
+color: #34a853;
+  }
